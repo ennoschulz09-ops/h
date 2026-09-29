@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #fff9f3;
+  --ink: #6e4a56;
+  --hotpink: #ff5c8a;
+  --pink: #ff9ebb;
+  --blush: #ffe4ec;
+  --yellow: #ffd166;
+  --lavender: #c9b6ff;
+  --mint: #bde8c8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "Quicksand", system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+.font-bubble {
+  font-family: "Fredoka", sans-serif;
+}
+.font-hand {
+  font-family: "Caveat", cursive;
+}
+
+::selection {
+  background: #ff9ebb;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #fff1e8;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff9ebb;
+  border-radius: 999px;
+  border: 3px solid #fff1e8;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff5c8a;
+}
+
+/* soft polka-dot paper */
+.bg-dots {
+  background-image: radial-gradient(#ffd9e4 1.6px, transparent 1.6px);
+  background-size: 26px 26px;
+}
+.bg-dots-faint {
+  background-image: radial-gradient(#ffe9f0 2px, transparent 2px);
+  background-size: 32px 32px;
+}
+
+/* puffy sticker text */
+.text-pop {
+  text-shadow:
+    3px 3px 0 #ffffff,
+    6px 6px 0 rgba(255, 92, 138, 0.16);
+}
+
+/* infinite marquee */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 24s linear infinite;
+}
+
+/* gentle floating */
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--r, 0deg));
+  }
+  50% {
+    transform: translateY(-16px) rotate(var(--r, 0deg));
+  }
+}
+.animate-bob {
+  animation: bob 3.4s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+.animate-wiggle {
+  animation: wiggle 1.6s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 14s linear infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.18);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.14);
+  }
+  60% {
+    transform: scale(1);
+  }
+}
+.animate-heartbeat {
+  animation: heartbeat 1.8s ease-in-out infinite;
+}
+
+@keyframes drift {
+  from {
+    transform: translateX(-30vw);
+  }
+  to {
+    transform: translateX(115vw);
+  }
+}
+.animate-drift {
+  animation: drift linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-bob,
+  .animate-wiggle,
+  .animate-spin-slow,
+  .animate-heartbeat,
+  .animate-drift {
+    animation: none;
+  }
+}
